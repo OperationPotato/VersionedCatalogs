@@ -22,6 +22,9 @@ object CatalogExtensions {
             .orElseThrow { IllegalArgumentException("Versioned Catalog is missing for '$version' ('$key')") }
     }
 
-    fun VersionCatalog.library(name: String): Provider<MinimalExternalModuleDependency> = this.findLibrary(name).get()
-    fun VersionCatalog.version(name: String): VersionConstraint = this.findVersion(name).get()
+    fun VersionCatalog.library(name: String): Provider<MinimalExternalModuleDependency> =
+        this.findLibrary(name).orElseThrow { Exception("Failed to find library '${name}' in '${this.name}'") }
+
+    fun VersionCatalog.version(name: String): VersionConstraint =
+        this.findVersion(name).orElseThrow { Exception("Failed to find version '${name}' in '${this.name}'") }
 }
