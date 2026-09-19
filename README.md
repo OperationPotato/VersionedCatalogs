@@ -13,7 +13,7 @@ pluginManagement {
 
 plugins {
     // add plugin
-    id("com.operationpotato.versioned-catalogs") version "1.0.0"
+    id("com.operationpotato.versioned-catalogs") version "1.0.1"
 }
 
 // Optional Configuration
@@ -31,7 +31,7 @@ import com.operationpotato.catalogs.CatalogExtensions.version
 
 dependencies {
     // for dependencies:
-    implementation(versionedLibs.library("fabric.api"))
+    implementation(versionedLibs.library("fabric-api"))
     // note: this uses the project name, which should be the Minecraft version
     // ...
 }
